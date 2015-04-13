@@ -8,3 +8,4 @@ class NewEntryAdmin(MarkdownModelAdmin):
     list_display = ('title','posted')
 
 admin.site.register(models.NewEntry, NewEntryAdmin)
+admin.site.register(models.Tag)

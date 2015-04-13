@@ -1,10 +1,17 @@
 {% extends 'eminer/base.html' %}
 {% load django_markdown %}
 {% block index_view %}
+{% if not val %}
         {% for post in posts %}
-        <h3>{{ post.title }}</h3>
-        <p>{{post.posted }}</p>
+        <a href="/blog/{{ post.slug }}/"><h2>{{ post.title }}</h2></a>
+        <p>{{post.posted }} | Tagged Under: {{ post.tag.all|join:", "}}</p>
         {{ post.body|markdown }}
         <hr/><br /><hr />
         {% endfor %}
+{% else %}
+    <a href="/blog/{{ posts.slug }}/"><h2>{{ posts.title }}</h2></a>
+        <p>{{posts.posted }} | Tagged Under: {{ posts.tag.all|join:", "}}</p>
+        {{ posts.body|markdown }}
+{% endif %}
+<a href="/blog/pages/{{ count }}/">Next Page>>></a>
 {% endblock %}

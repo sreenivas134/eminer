@@ -33,22 +33,18 @@ margin-left:200px;
 	position:relative;
 	left:50px;
 	background-color:white;
-}
-
-.post_view .post_span{
-	margin-top:50px;
 	border-radius:5px;
 }
+
 .post_view *{
 	padding-left:100px;
 	position:relative;
 	padding:0px 30px 0px 30px;
 }
-
-.side_view{
-	width:25%;
-	position:relative;
-	float:right;
+.post_view a{
+	text-decoration:none;
+	color:black;
+	display:block;
 }
 
 .index_view{
@@ -58,16 +54,34 @@ margin-left:200px;
 	background-color:#ddd;
 }
 
-.author_view{
+/* Side view goes here */
+.side_view div{
 	width:95%;
 	position:relative;
 	background-color:#eee;
 	padding:5px;
+	margin-bottom:8px;
 	border-radius:5px;
 }
+
+.side_view{
+	width:25%;
+	position:relative;
+	float:right;
+}
+
 .author_view img{
 	width:50%;
 	position:relative;
 	left:20%;
 	height:50%;
+	border-radius:10px;
+}
+.follow_author li{
+	display:inline;
+	
+}
+.follow_author img{
+	height:25px;
+	width:25px;
 }
