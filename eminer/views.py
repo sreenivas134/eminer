@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from eminer.models import NewEntry
+from django.http import HttpResponse
 # Create your views here.
 
-"""class BlogView(request):
-    posts = NewEntry.objects.order_by('-posted')[:5]
-    return render(request, 'emine/blog.html',{'posts':posts})"""
+def BlogView(request):
+    posts = NewEntry.objects.all
+    return render(request, 'eminer/index.html',{'posts':posts})
+    
+def register(request):
+    HttpResponse('Hi How are you')

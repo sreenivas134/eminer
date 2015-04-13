@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load django_markdown %}
+<html>
+<head><title>E-miner</title></head>
+<body>
+    <div>
+        {% if posts %}
+        {% for post in posts %}
+        <h4>{{ posts.title }}</h4>
+        <p>{{posts.posted }}</p>
+        {{ posts.body|markdown }}
+        {% endfor %}
+        {% endif %}
+    </div>
+    </body>
+</html>

@@ -5,6 +5,6 @@ from django_markdown.admin import MarkdownModelAdmin
 
 class NewEntryAdmin(MarkdownModelAdmin):
     prepopulated_fields={"slug":("title",),}
-    list_view = ('title','posted')
+    list_display = ('title','posted')
 
 admin.site.register(models.NewEntry, NewEntryAdmin)
