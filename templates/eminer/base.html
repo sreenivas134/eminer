@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+{% load django_markdown %}
+<html>
+<head>
+    <title>{% block title %}E-miner.com {% endblock %}</title>
+    <link rel='stylesheet' type='text/css' href="{% static 'css/base.css' %}"/>
+</head>
+<body>
+    <h1>E-Miner</h1>
+    <h5>I like the field of Data Science and Artificial Intelligence</h5>
+    <div class='index_view'>
+        <div class='nav_bar'>
+            <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            </ul>
+        </div>
+        <div>
+        <div class='side_view'>
+            
+            <div class='author_view'>
+                <img src='#'/>
+                <h4>Sreenivasa Rao Pallapu</h4>
+                <p>Passionate about programming especially Python. Interested in Artificial intelligence and Data Mining. Self motivated and self taught. A quick learner. Presently working towards python machine learning packages, Numpy, Pandas, Scipy, Scikit-learn.</p>
+            </div>
+            
+        </div>
+                
+        <!--posts goes here -->
+        <div class='post_view'>{% block index_view %}{% endblock %}</div>
+    </div>
+</div>
+</body>
+</html>

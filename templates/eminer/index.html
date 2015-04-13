@@ -1,16 +1,10 @@
-<!DOCTYPE html>
+{% extends 'eminer/base.html' %}
 {% load django_markdown %}
-<html>
-<head><title>E-miner</title></head>
-<body>
-    <div>
-        {% if posts %}
+{% block index_view %}
         {% for post in posts %}
-        <h4>{{ posts.title }}</h4>
-        <p>{{posts.posted }}</p>
-        {{ posts.body|markdown }}
+        <h3>{{ post.title }}</h3>
+        <p>{{post.posted }}</p>
+        {{ post.body|markdown }}
+        <hr/><br /><hr />
         {% endfor %}
-        {% endif %}
-    </div>
-    </body>
-</html>
+{% endblock %}
