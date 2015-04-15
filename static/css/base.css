@@ -35,16 +35,27 @@ margin-left:200px;
 	background-color:white;
 	border-radius:5px;
 }
+.post_view p{
+	font-family:arial;
+	color:#333;
+	text-indent:30px;
+}
+
 
 .post_view *{
 	padding-left:100px;
 	position:relative;
 	padding:0px 30px 0px 30px;
 }
-.post_view a{
+.post_view pre{
 	text-decoration:none;
-	color:black;
-	
+	text-indent:-30px;
+	color:#050;
+	display:block;
+	overflow:auto;
+	padding-left:100px;
+	line-height:250%;
+	font-size:15px;
 }
 
 .index_view{
@@ -69,6 +80,12 @@ margin-left:200px;
 	position:relative;
 	float:right;
 }
+.side_view p{
+	text-indent:30px;
+	color:#222;
+	font-family:arial;
+	word-wrap:initial;
+}
 
 .author_view img{
 	width:50%;
@@ -84,4 +101,36 @@ margin-left:200px;
 .follow_author img{
 	height:25px;
 	width:25px;
+}
+
+
+/*Footer View*/
+
+.footer_view{
+	width:100%;
+	min-height:200px;
+	background-color:#444;
+	position:relative;
+	color:#eee;
+	border-radius:5px;
+	
+}
+.recent_posts{
+	width:30%;
+	position:relative;
+	padding:10px;
+}
+
+.recent_posts a{
+	display:block;
+	padding-top:10px;
+	text-decoration:none;
+	font-family:arial;
+	color:#eee;
+	font-size:25px;
+}
+.copy_view{
+	min-height:50px;
+	background-color:#ddd;
+	width:100%
 }

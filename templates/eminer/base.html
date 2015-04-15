@@ -7,7 +7,7 @@
     <link rel='stylesheet' type='text/css' href="{% static 'css/base.css' %}"/>
 </head>
 <body>
-    <h1>E-Miner</h1>
+    <a style='text-decoration:none;color:#000;' href="{% url 'home' %}"><h1>E-Miner</h1></a>
     <h5>Following my Passion!</h5>
     <div class='index_view'>
         <div class='nav_bar'>
@@ -20,6 +20,7 @@
         <div class='side_view'>
             
             <div class='author_view'>
+                <h3>About the Author:</h3>
                 <img src="{% static 'images/pro.jpg' %}"/>
                 <h4>Sreenivasa Rao Pallapu</h4>
                 <p>Passionate about programming especially Python. Interested in Artificial intelligence and Data Mining. Self motivated and self taught. A quick learner. Presently working towards python machine learning packages, Numpy, Pandas, Scipy, Scikit-learn.</p>
@@ -39,6 +40,24 @@
         <!--posts goes here -->
         <div class='post_view'>{% block index_view %}{% endblock %}</div>
     </div>
+        <!--Footer Goes here-->
+    <div class='footer_view'>
+        <div class='recent_posts'>
+            <h3 style='padding-left:50px;'>Recent Posts:</h3>
+            {% if recent %}
+            <ul>
+            {% for post in recent %}
+                <li><a href="/blog/{{ post.slug }}/">{{ post.title }}</a></li><span style='font-size:10px;color:#aaa;'>{{ post.posted }}</span><hr style='color:#222;'/>
+            {% endfor %}
+             </ul>
+            {% endif %}
+           
+        </div>
+        
+        </div>
+    <div class='copy_view'>
+        <span style='position:relative;top:15px;float:right;'>&copy 2015 Eminer.pythonanywhere.com</span>
+        </div>
 </div>
 </body>
 </html>
