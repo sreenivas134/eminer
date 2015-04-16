@@ -35,18 +35,32 @@ margin-left:200px;
 	background-color:white;
 	border-radius:5px;
 }
-.post_view p{
+.post_head{
+	padding:20px 0px 10px 20px;
+}
+.tags{
+	padding:0px 0px 0px 20px;
+}
+.post_body p{
 	font-family:arial;
 	color:#333;
 	text-indent:30px;
+	line-height:25px;
+}
+
+.post_body{
+	font-family:arial;
+	margin-left:40px;
+	margin-right:40px;
+}
+
+.post_body img{
+	display:block;
+	margin-left:80px;
+	min-height:300px;
 }
 
 
-.post_view *{
-	padding-left:100px;
-	position:relative;
-	padding:0px 30px 0px 30px;
-}
 .post_view pre{
 	text-decoration:none;
 	text-indent:-30px;

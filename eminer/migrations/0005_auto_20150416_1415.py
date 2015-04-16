@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('eminer', '0005_remove_newentry_tags'),
+        ('eminer', '0004_newentry_tags'),
     ]
 
     operations = [
@@ -20,6 +20,10 @@ class Migration(migrations.Migration):
             options={
             },
             bases=(models.Model,),
+        ),
+        migrations.RemoveField(
+            model_name='newentry',
+            name='tags',
         ),
         migrations.AddField(
             model_name='newentry',

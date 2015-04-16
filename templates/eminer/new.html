@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{%load django_markdown %}
+<html>
+<body>
+
+{% for post in posts %}
+<a href='/blog/{{post.slug}}/'><h2>{{post.title}}</h2></a>
+<p>{{post.posted}} | Tagged Under: 
+	{% for tags in post.tag.all %}
+	<a href='/blog/tags/{{tags}}'>{{tags}}</a>
+	{% endfor %}
+	{{post.body|markdown}}
+	
+	{% endfor %}
+
+</body>
+</html>

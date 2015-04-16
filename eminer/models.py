@@ -15,7 +15,7 @@ class NewEntry(models.Model):
     posted = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     slug = models.SlugField(max_length = 200,)
-    tag = models.ManyToManyField(Tag)
+    tag = models.ManyToManyField(Tag, null=False)
     
     def __unicode__(self):
         return self.title

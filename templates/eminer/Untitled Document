@@ -1,0 +1,8 @@
+{% extends 'eminer/base.html' %}
+{% load crispy_forms_tags %}
+{% load django_markdown %}
+{% block index_view %}
+        <div class='post_form'>
+                {% crispy form %}
+</div>
+{% endblock %}

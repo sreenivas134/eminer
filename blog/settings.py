@@ -27,6 +27,7 @@ TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 TEMPLATE_DIRS = (
     TEMPLATE_PATH,
 )
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 ALLOWED_HOSTS = []
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = (
     
     'eminer',
     'django_markdown',
+    'crispy_forms',
 )
 
 MIDDLEWARE_CLASSES = (

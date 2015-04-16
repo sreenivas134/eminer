@@ -7,12 +7,14 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('eminer', '0004_newentry_tags'),
+        ('eminer', '0003_auto_20150413_1025'),
     ]
 
     operations = [
-        migrations.RemoveField(
+        migrations.AddField(
             model_name='newentry',
             name='tags',
+            field=models.CharField(default='', max_length=50),
+            preserve_default=False,
         ),
     ]
