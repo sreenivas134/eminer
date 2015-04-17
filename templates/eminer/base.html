@@ -15,6 +15,7 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'add_post' %}">AddPost</a></li>
+            <li><a href="{% url 'publisher-view' %}">AdminView</a></li>
             </ul>
         </div>
         <div>
@@ -39,7 +40,7 @@
         </div>
                 
         <!--posts goes here -->
-        <div class='post_view'>{% block index_view %}{% endblock %}</div>
+        <div class='post_view'><div class='index_html'>{% block index_view %}{% endblock %}</div></div>
     </div>
         <!--Footer Goes here-->
     <div class='footer_view'>
@@ -48,7 +49,7 @@
             {% if recent %}
             <ul>
             {% for post in recent %}
-                <li><a href="/blog/{{ post.slug }}/">{{ post.title }}</a></li><span style='font-size:10px;color:#aaa;'>{{ post.posted }}</span><hr style='color:#222;'/>
+                <li><a href="/blog/{{ post.slug }}/">{{ post.title }}</a></li><span style='font-size:10px;color:#aaa;'>{{ post.posted }}</span>{% if not forloop.last %}<hr style='color:#222;'/>{% endif %}
             {% endfor %}
              </ul>
             {% endif %}

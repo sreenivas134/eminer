@@ -7,6 +7,14 @@ margin-left:200px;
 
 }
 
+.index_view{
+	position:absolute;
+	right:30px;
+	width:90%;
+	background-color:#ddd;
+}
+
+
 .nav_bar{
 	position:relative;
 	height:40px;
@@ -34,6 +42,9 @@ margin-left:200px;
 	left:50px;
 	background-color:white;
 	border-radius:5px;
+}
+.post_view .index_html{
+	padding:20px 20px 20px 20px;
 }
 .post_head{
 	padding:20px 0px 10px 20px;
@@ -72,12 +83,24 @@ margin-left:200px;
 	font-size:15px;
 }
 
-.index_view{
-	position:absolute;
-	right:30px;
-	width:90%;
-	background-color:#ddd;
+.post_view .notpublished_posts{
+	position:relative;
+	width:45%;
+	float:left;
+	margin-left:30px;
+	font-size:22px;
 }
+
+.post_view .published_posts{
+	position:relative;
+	width:45%;
+	float:right;
+	margin-left:30px;
+	font-size:22px;
+}
+
+
+
 
 /* Side view goes here */
 .side_view div{
