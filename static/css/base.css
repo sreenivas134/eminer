@@ -2,9 +2,9 @@ body{
 margin-left:100px;
 }
 
-h1, h5{
-margin-left:200px;
-
+.title_view{
+	position:relative;
+	margin-left:250px;	
 }
 
 .index_view{
@@ -23,9 +23,14 @@ margin-left:200px;
 	margin-top:-15px;
 	border-radius:3px;
 }
-.nav_bar li{
+.nav_bar ul{
 	position:relative;
 	top:6px;
+	display:inline;
+	margin-right:10px;
+}
+.nav_bar li{
+	position:relative;
 	display:inline;
 	padding-left:10px;
 }
@@ -68,13 +73,11 @@ margin-left:200px;
 .post_body img{
 	display:block;
 	margin-left:80px;
-	min-height:300px;
+	
 }
 
 
 .post_view pre{
-	text-decoration:none;
-	text-indent:-30px;
 	color:#050;
 	display:block;
 	overflow:auto;
@@ -99,7 +102,28 @@ margin-left:200px;
 	font-size:22px;
 }
 
-
+.post_form{
+	position:relative;
+	margin-left:50px;
+}
+.btn-primery{
+	position:relative;
+	float:right;
+}
+.social_div{
+	position:relative;
+	width:90%;
+}
+.social_div li{
+	display:inline;
+	padding:10px;
+	width:200px;
+}
+.next_page{
+	position:relative;
+	width:100px;
+	left:400px;
+}
 
 
 /* Side view goes here */
@@ -156,7 +180,9 @@ margin-left:200px;
 	width:30%;
 	position:relative;
 	padding:10px;
+	
 }
+
 
 .recent_posts a{
 	display:block;

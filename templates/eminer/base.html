@@ -5,17 +5,51 @@
 <head>
     <title>{% block title %}E-miner.com {% endblock %}</title>
     <link rel='stylesheet' type='text/css' href="{% static 'css/base.css' %}"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    
+    <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+<script>
+tinymce.init({selector:'textarea',
+    plugins: [
+        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+        "searchreplace wordcount visualblocks visualchars code fullscreen",
+        "insertdatetime media nonbreaking save table contextmenu directionality",
+        "emoticons template paste textcolor colorpicker textpattern"
+    ],
+});</script>
+    
 </head>
 <body>
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    
+    
+    <div class='title_view'>
     <a style='text-decoration:none;color:#000;' href="{% url 'home' %}"><h1>E-Miner</h1></a>
     <h5>Following my Passion!</h5>
+    </div><br/>
     <div class='index_view'>
-        <div class='nav_bar'>
+        <div class='nav_bar' role="navigation">
             <ul>
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'add_post' %}">AddPost</a></li>
-            <li><a href="{% url 'publisher-view' %}">AdminView</a></li>
+            <li><a href="{% url 'add_post' %}">AddPost</a></li></ul>
+            <ul style="position:relative;float:right;">
+                {% if user.is_superuser %}
+                <li><a href="{% url 'publisher-view' %}">AdminView</a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'auth_logout' %}">LogOut</a></li>
+                {% else %}}
+                <li><a href="{% url 'registration_register' %}">Register Here</a></li>
+                <li><a href="{% url 'auth_login' %}">Login</a></li>
+                {% endif %}
             </ul>
         </div>
         <div>
@@ -45,11 +79,11 @@
         <!--Footer Goes here-->
     <div class='footer_view'>
         <div class='recent_posts'>
-            <h3 style='padding-left:50px;'>Recent Posts:</h3>
+            <h3 style='padding-left:30px;'>Recent Posts:</h3>
             {% if recent %}
             <ul>
             {% for post in recent %}
-                <li><a href="/blog/{{ post.slug }}/">{{ post.title }}</a></li><span style='font-size:10px;color:#aaa;'>{{ post.posted }}</span>{% if not forloop.last %}<hr style='color:#222;'/>{% endif %}
+                <li><a href="/blog/{{ post.slug }}/">{{ post.title }}</a></li><br/><span style='font-size:10px;color:#aaa;'>{{ post.posted }}</span>{% if not forloop.last %}<hr style='color:#222;'/>{% endif %}
             {% endfor %}
              </ul>
             {% endif %}

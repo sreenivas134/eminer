@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from eminer.models import NewEntry, Tag
 from eminer.forms import EntryForm, TagForm, EditPostForm, PublishForm
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 # Create your views here.
 
@@ -16,12 +17,14 @@ def BlogView(request, post_name=None, count=0, tag=None):
         posts = NewEntry.objects.filter(published=True).order_by('-posted')[count:count+2]
         count += 2
     return render(request, 'eminer/index.html', {'posts':posts, 'count':count, 'recent':recent})
+
 def About(request):
-    return render(request, 'eminer/about.html')
+    recent = NewEntry.objects.filter(published=True).order_by('-posted')[:4]
+    return render(request, 'eminer/about.html',{'recent':recent,})
 
 
 # Add posts
-
+@login_required
 def AddPost(request, post_name_edit=None):
     not_published = NewEntry.objects.filter(published = False).order_by('-modified')
     recent = NewEntry.objects.order_by('-posted')[:5]
@@ -56,7 +59,7 @@ def AddPost(request, post_name_edit=None):
         
 
 
-
+@login_required
 # Add tag
 def AddTag(request):
     recent = NewEntry.objects.order_by('-posted')[:5]
@@ -79,7 +82,7 @@ def AddTag(request):
 
 
 #Author View of the Models
-
+@login_required
 def PublisherView(request, post_name_edit=None):
     not_published = NewEntry.objects.filter(published = False).order_by('-modified')
     published_posts = NewEntry.objects.filter(published = True).order_by('-modified')[:10]
@@ -87,7 +90,7 @@ def PublisherView(request, post_name_edit=None):
     
     return render(request, 'eminer/admin_view.html', {'not_published':not_published, 'published_posts':published_posts, 'recent':recent})
 
-
+@login_required
 def PublishView(request, post_name=None):
     if post_name:
         if request.method == 'POST':

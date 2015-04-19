@@ -9,11 +9,15 @@
             {% for tags in post.tag.all %}
             <a style='text-decoration:none;color:#444;' href="/blog/tags/{{ tags }}">{{ tags }}{% if not forloop.last %}, {% endif %}</a>
             {% endfor %} 
-            </div><br/><hr style='border-color:#fff;' />
+            </div><br/><hr/>
         <div class='post_body'>{{ post.body|markdown }}</div>
+{% include 'eminer/social.html' %}
         <hr/><br /><hr />
         {% empty %}
             Sorry, No Older posts Exist!
         {% endfor %}
-<a style='position:relative;float:right;top:-40px;' href="/blog/pages/{{ count }}/">Next Page>>></a>
+{% if posts %}
+<div class="next_page">
+<a href="/blog/pages/{{ count }}/">Next Page>>></a></div>
+{% endif %}
 {% endblock %}

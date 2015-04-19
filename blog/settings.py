@@ -45,7 +45,15 @@ INSTALLED_APPS = (
     'eminer',
     'django_markdown',
     'crispy_forms',
+    'registration',
 )
+
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+REGISTRATION_OPEN =True
+LOGIN_REDIRECT_URL = '/blog/'
+LOGIN_URL = '/accounts/login/'
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

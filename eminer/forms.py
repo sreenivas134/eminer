@@ -4,15 +4,26 @@ from django_markdown.fields import MarkdownFormField
 from django_markdown.widgets import MarkdownWidget
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from crispy_forms.layout import Submit, Layout, Fieldset, Div, ButtonHolder
 
 class EntryForm(forms.ModelForm):
     class Meta:
         model=NewEntry
         fields = ('title','body','tag')
     helper = FormHelper()
+    helper.layout = Layout(
+        Div(
+            'first arg is the legend of the field set',
+            'title',
+            'body',
+            'tag',
+            css_class = 'post_form'
+        ),
+        ButtonHolder(
+            Submit('submit','Submit',css_class='btn-primery')
+        )
+    )
     helper.form_method = 'POST'
-    helper.add_input(Submit('submit','Submit', css_class='btn-primery'))
 
     
 class EditPostForm(forms.ModelForm):
