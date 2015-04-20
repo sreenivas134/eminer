@@ -3,6 +3,7 @@
 {% load django_markdown %}
 <html>
 <head>
+    <link rel="shortcut icon" href="{% static 'images/logo1.png' %}">
     <title>{% block title %}E-miner.com {% endblock %}</title>
     <link rel='stylesheet' type='text/css' href="{% static 'css/base.css' %}"/>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -31,7 +32,8 @@ tinymce.init({selector:'textarea',
     
     
     <div class='title_view'>
-    <a style='text-decoration:none;color:#000;' href="{% url 'home' %}"><h1>E-Miner</h1></a>
+    
+    <a style='text-decoration:none;color:#000;' href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}"/></a>
     <h5>Following my Passion!</h5>
     </div><br/>
     <div class='index_view'>
